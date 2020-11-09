@@ -15,7 +15,14 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Set Computer defaults
 echo "Setting computer hostname"
-hostnamectl set-hostname "Steve Laptop"
+hostnamectl set-hostname "steve-laptop"
+
+# Install Gnome extension preferences
+echo "Installing gnome-shell-extensions-prefs"
+sudo apt install gnome-shell-extension-prefs
+
+echo "Disabling Desktop icons"
+gnome-extensions disable desktop-icons@csoriano
 
 echo "Creating .hushlogin for quiet logins"
 touch ~/.hushlogin
