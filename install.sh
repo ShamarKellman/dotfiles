@@ -5,6 +5,21 @@ echo "Setting up your machine..."
 echo "Creating .hushlogin for quiet logins"
 touch ~/.hushlogin
 
+# Check for unzip and install if we do not have it
+if test ! $(which unzip); then
+    sudo apt install unzip
+fi
+
+echo "Unzip installed"
+
+# Check for Go and install if we don't have it
+if test ! $(which go); then
+    sudo apt install golang
+    go version
+fi
+
+echo "Go Lang Installed"
+
 # Check for PHP and install if we don't have it
 if test ! $(which php); then
     echo "Installing PHP"
@@ -29,7 +44,6 @@ fi
 
 echo "Composer Installed"
 
-
 # Check for docker and install if we don't have it
 if test ! $(which docker); then
     echo "Installing Docker"
@@ -51,6 +65,20 @@ if test ! $(which docker-compose); then
 fi
 
 echo "Docker Compose Installed"
+
+# Check for Terraform and install if we don't have it
+if test ! $(which terraform); then
+    echo "Installing Terraforn"
+    TER_VER=`curl -s https://api.github.com/repos/hashicorp/terraform/releases/latest | grep tag_name | cut -d: -f2 | tr -d \"\,\v | awk '{$1=$1};1'`
+    echo "Downloading latest terraform release"
+    wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip
+    unzip terraform_${TER_VER}_linux_amd64.zip
+    rm -rf terraform_${TER_VER}_linux_amd64.zip
+    echo "Moving terraform to global location"
+    sudo mv terraform /usr/local/bin/
+fi
+
+echo "Terraform installed"
 
 # Install Laravel Installer
 echo "Installing Laravel Installer"
@@ -80,6 +108,8 @@ if test ! $(which starship); then
     echo "making ~/.config directory"
     mkdir -p ~/.config
 fi
+
+echo "Starship installed"
 
 echo "Soft Linking dotfile starship.toml file"
 rm -rf $HOME/.config/startship.toml
