@@ -153,6 +153,9 @@ rm -rf $HOME/.zshrc
 echo "Soft Linking dotfile .zshrc files"
 ln -s $HOME/github/JustSteveKing/dotfiles/.zshrc $HOME/.zshrc
 
+# Set up VSCode Settings
+ln -s $HOME/github/JustSteveKing/dotfile/vs-code.settings.json $HOME/.config/Code/User/settings.json
+
 echo "Setting up git"
 git config --global user.name "Steve McDougall"
 git config --global user.email juststevemcd@gmail.com
