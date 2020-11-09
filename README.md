@@ -9,6 +9,7 @@ Get started with your own dotfiles.
 - GoLang
 - PHP
 - composer (latest)
+- NodeJS and NPM
 - docker
 - docker-compose
 - Terraform

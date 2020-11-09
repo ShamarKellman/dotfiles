@@ -44,6 +44,15 @@ fi
 
 echo "Composer Installed"
 
+
+# Check for npm and install if we don't have it
+if test ! $(which npm); then
+    sudo apt install nodejs
+    sudo apt install npm
+fi
+
+echo "NPM installed"
+
 # Check for docker and install if we don't have it
 if test ! $(which docker); then
     echo "Installing Docker"
