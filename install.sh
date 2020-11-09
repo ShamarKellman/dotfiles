@@ -2,6 +2,21 @@
 
 echo "Setting up your machine..."
 
+# Ask for the administrator password upfront
+echo "We need your admin password now so you do not have to keep giving it"
+sudo -v
+
+# Update and Upgrade - this is always recommended
+echo "Let's quickly update the OS"
+sudo apt-get update && sudo apt-get upgrade -y
+
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Set Computer defaults
+echo "Setting computer hostname"
+hostnamectl set-hostname "Steve Laptop"
+
 echo "Creating .hushlogin for quiet logins"
 touch ~/.hushlogin
 
