@@ -7,7 +7,7 @@ npm-debug.log
 # Windows
 Thumbs.db
 
-# WebStorm
+# JetBrains Products
 .idea/
 
 # vi
@@ -17,4 +17,5 @@ Thumbs.db
 log/
 *.log
 
-# etc...
+# VS Code
+.vscode

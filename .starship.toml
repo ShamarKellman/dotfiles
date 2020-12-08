@@ -1,4 +1,3 @@
-
 [aws]
 disabled = true
 
@@ -16,4 +15,9 @@ format = "using [$symbol$version]($style) "
 
 [package]
 format = "[$symbol$version]($style) "
-symbol = " "
+
+[php]
+format = "via [$symbol$version]($style) "
+symbol = "🐘 "
+style = "147 bold"
+disabled = false

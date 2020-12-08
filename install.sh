@@ -10,7 +10,7 @@ sudo -v
 echo "Let's quickly update the OS"
 sudo apt-get update && sudo apt-get upgrade -y
 
-# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+# Keep-alive: update existing `sudo` time stamp
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Set Computer defaults
@@ -29,6 +29,7 @@ touch ~/.hushlogin
 
 # Check for unzip and install if we do not have it
 if test ! $(which unzip); then
+    echo "Installing Unzip"
     sudo apt install unzip
 fi
 
@@ -36,6 +37,7 @@ echo "Unzip installed"
 
 # Check for Go and install if we don't have it
 if test ! $(which go); then
+    echo "Installing GoLang"
     sudo apt install golang
     go version
 fi
@@ -65,15 +67,17 @@ if test ! $(which composer); then
 fi
 
 echo "Composer Installed"
-
+echo "Updating Composer"
+composer self-update
 
 # Check for npm and install if we don't have it
 if test ! $(which npm); then
+    echo "Installing Node & NPM"
     sudo apt install nodejs
     sudo apt install npm
 fi
 
-echo "NPM installed"
+echo "Node & NPM installed"
 
 # Check for docker and install if we don't have it
 if test ! $(which docker); then
@@ -154,9 +158,10 @@ echo "Soft Linking dotfile .zshrc files"
 ln -s $HOME/github/JustSteveKing/dotfiles/.zshrc $HOME/.zshrc
 
 # Set up VSCode Settings
+echo "Soft Linking VS Code Settings"
 ln -s $HOME/github/JustSteveKing/dotfile/vs-code.settings.json $HOME/.config/Code/User/settings.json
 
-echo "Setting up git"
+echo "Setting up git config"
 git config --global user.name "Steve McDougall"
 git config --global user.email juststevemcd@gmail.com
 
@@ -167,3 +172,15 @@ echo "Creating global gitignore file"
 rm -rf $HOME/.gitignore
 ln -s $HOME/github/JustSteveKing/dotfiles/gitignore $HOME/.gitignore
 git config --global core.excludesfile ~/.gitignore
+
+echo "Setting up github directory"
+cd ~/
+mkdir github && cd github
+mkdir JustSteveKing && cd JustSteveKing
+
+echo "Installing SSH Config"
+git clone git@github.com:JustSteveKing/ssh-config.git
+
+echo "Soft linking SSH config"
+ln -s ssh-config/config ~/.ssh/config
+ls -s ssh-config/conf.d ~/.ssh/conf.d
