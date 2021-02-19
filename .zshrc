@@ -15,7 +15,7 @@ export MNML_RPROMPT=('mnml_cwd 20')
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.cHIST_STAMPS="dd/mm/yyyy"om/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="minimal"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -93,4 +93,4 @@ export LANG=en_US.UTF-8
 alias zshconfig="vim ~/.aliases"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 source $DOTFILES/.aliases.zsh
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
