@@ -1,5 +1,6 @@
 export DOTFILES=$HOME/github/JustSteveKing/dotfiles
 export PATH=$HOME/bin:/usr/local/bin:/$HOME/.composer/vendor/bin:/usr/local/go/bin:$PATH
+export PATH=$PATH:/usr
 
 # Path to your oh-my-zsh installation.
 export ZSH=/$HOME/.oh-my-zsh
@@ -93,4 +94,4 @@ export LANG=en_US.UTF-8
 alias zshconfig="vim ~/.aliases"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 source $DOTFILES/.aliases.zsh
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"

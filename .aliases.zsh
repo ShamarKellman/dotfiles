@@ -41,3 +41,9 @@ alias resolve="git add . && git commit --no-edit"
 alias stash="git stash -u"
 alias unstage="git restore --staged ."
 alias wip="commit wip"
+
+# Rafflebird by erika heidi
+
+raffle() {
+  cd /Users/steve/code/sites/rafflebird && php rafflebird pick random id=$1
+}
