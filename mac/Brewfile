@@ -7,7 +7,6 @@ tap 'nicoverbruggen/homebrew-cask'
 tap 'hashicorp/tap'
 
 # Binaries
-brew 'awscli'
 brew 'bash' # Latest Bash version
 brew 'coreutils' # Those that come with macOS are outdated
 brew 'gh'
@@ -49,39 +48,22 @@ brew 'yarn'
 
 # Apps
 cask '1password'
-cask 'caffeine'
 cask 'dbngin'
 cask 'discord'
 cask 'docker'
-cask 'figma'
-cask 'firefox'
 cask 'github'
 cask 'google-chrome'
 cask 'google-drive'
 cask 'gpg-suite'
-cask 'imageoptim'
 cask 'insomnia'
-cask 'pastebot'
 cask 'phpmon'
 cask 'phpstorm'
 cask 'ray'
 cask 'screenflow'
-cask 'signal'
 cask 'slack'
-cask 'tableplus'
 cask 'telegram-desktop'
-cask 'hashicorp/tap/terraform'
-cask 'the-unarchiver'
-cask 'tinkerwell'
-cask 'transmit'
-cask 'tunnelbear'
-cask 'tuple'
 cask 'visual-studio-code'
 cask 'zoom'
-
-# Quicklook
-cask 'qlmarkdown'
-cask 'quicklook-json'
 
 # Fonts
 cask 'font-lato'

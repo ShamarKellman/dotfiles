@@ -1,5 +1,20 @@
 #!/bin/bash
 
+# Homebrew
+echo -e "Set up homebrew? (y/n)"
+read -p "Answer: " reply
+
+if [[ $reply =~ ^[Yy]$ ]]
+then
+    echo -e "Setting up homebrew\n"
+    echo install homebrew
+    sudo rm -rf /usr/local/Cellar /usr/local/.git
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+    brew tap homebrew/bundle
+    brew bundle --file=~/dotfiles/mac/Brewfile
+fi
+
 ## NPM
 echo -e "Set up npm? (y/n)"
 read -p "Answer: " reply
@@ -35,26 +50,9 @@ then
     mv composer.phar /usr/local/bin/composer
 fi
 
-
-# Homebrew
-echo -e "Set up homebrew? (y/n)"
-read -p "Answer: " reply
-
-if [[ $reply =~ ^[Yy]$ ]]
-then
-    echo -e "Setting up homebrew\n"
-    echo install homebrew
-    sudo rm -rf /usr/local/Cellar /usr/local/.git
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-
-    brew tap homebrew/bundle
-    brew bundle --file=~/dotfiles/mac/Brewfile
-fi
+echo -e "Settings up code directories\n"
 
 mkdir $HOME/code
-mkdir $HOME/code/sites
 mkdir $HOME/code/github/
-mkdir $HOME/code/github/JumpTwentyFour
+mkdir $HOME/code/github/JustSteveKing
 
-echo -e "All done\n"
-echo "Set some sensible os x defaults by running: $HOME/dotfiles/mac/set-defaults.sh"

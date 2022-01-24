@@ -16,3 +16,8 @@ source $HOME/dotfiles/setup-terminal
 
 echo -e "Set up development environment\n"
 source $HOME/dotfiles/setup-dev
+
+echo -e "Set up sensible mac defaults\n"
+source $HOME/dotfiles/mac/set-defaults.sh
+
+echo -e "All done\n"
