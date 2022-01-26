@@ -6,9 +6,15 @@ sudo -v
 
 echo -e "Firstly, make sure google drive is running if you want to set up mackup."
 
-echo "What do you want your computer hostname to be?"
+echo -e "Do you want to set a hostname for this machine? (y/n)"
 read -p "Answer: " reply
-hostnamectl set-hostname $reply
+
+if [[ $reply =~ ^[Yy]$ ]]
+then
+    echo "What do you want your computer hostname to be?"
+    read -p "Answer: " reply
+    hostnamectl set-hostname $reply
+fi
 
 
 echo -e "Set up terminal\n"
