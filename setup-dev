@@ -54,5 +54,5 @@ echo -e "Settings up code directories\n"
 
 mkdir $HOME/code
 mkdir $HOME/code/github/
-mkdir $HOME/code/github/JustSteveKing
+mkdir $HOME/code/github/ShamarKellman
 
